@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+<script>
+    var vConsole = new window.VConsole();
+</script>
+<script src="./build/aframe.js"></script>
+<script src="./build/aframe-ar-nft.js"></script>
+<script src="./build/gesture-detector.js"></script>
+<script src="./build/gesture-handler.js"></script>
+<style>
+    .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+    }
+</style>
+
+<body style="margin: 0px; overflow: hidden">
+
+    <div class="arjs-loader">
+        <div>Loading, please wait...</div>
+    </div>
+    <a-scene arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" embedded
+        renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene">
+        <a-nft type="nft" url="https://deja-vuuu.github.io/FE-3D/ar/nft/iset/join_popup" smooth="true" smoothCount="10"
+            smoothTolerance=".01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;">
+            <a-entity gltf-model="./nft/test.gltf" scale="5 5 5" position="50 150 0" class="clickable" gesture-handler>
+            </a-entity>
+        </a-nft>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+<script>
+    window.addEventListener("arjs-nft-loaded", (event) => {
+        // Hide loading overlay
+        console.log("arjs-nft-loaded")
+    });
+</script>
+
+</html>
