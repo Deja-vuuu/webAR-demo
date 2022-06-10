@@ -1,10 +1,13 @@
-<a name="AR.js-demo"></a>
-# AR.js-demo
+<a name="webAR-demo"></a>
+
+# webAR-demo
 
 <a name="e3350b1b"></a>
+
 ## Try now!
 
 <a name="2bc03768"></a>
+
 #### Image Tracking
 
 🚀[Open this sample](https://deja-vuuu.github.io/webAR-demo/ImageTracking.html) on your phone and scan this marker.
@@ -14,6 +17,7 @@
 ---
 
 <a name="0b86adc7"></a>
+
 #### Marker Tracking
 
 🚀[Open this sample](https://deja-vuuu.github.io/webAR-demo/MarkerTracking.html) on your phone and scan this marker.
