@@ -1,43 +1,37 @@
-<!-- <script
-  src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
+<!DOCTYPE html>
 
-<script src="./lib/aframe-master.min.js"></script>
-<script src="./lib/aframe-ar-nft.js"></script>
-<style>
-  .arjs-loader {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+<html>
 
-  .arjs-loader div {
-    text-align: center;
-    font-size: 1.25em;
-    color: white;
-  }
-</style>
+<head>
+  <title>Gesture Interactions - A-Frame & AR.js</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<body style="margin : 0px; overflow: hidden;">
-  <!-- minimal loader shown until image descriptors are loaded -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="./build/gesture-detector.js"></script>
+  <script src="./build/gesture-handler.js"></script>
+</head>
+
+<body>
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
-  <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true; precision: medium;" embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
-    <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-    <a-nft type="nft" url="https://deja-vuuu.github.io/webAR-demo/assets/nft/iset/join_popup" smooth="true"
-      smoothCount="10" smoothTolerance=".01" smoothThreshold="5">
-      <a-entity gltf-model="./nft/trex/scene.gltf" scale="5 5 5" position="150 300 -100">
+  <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector
+    id="scene">
+    <a-assets>
+      <a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb">
+      </a-asset-item>
+    </a-assets>
+
+    <a-marker preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"
+      id="markerA">
+      <a-entity id="bowser-model" gltf-model="#bowser" position="0 0 0" scale="0.05 0.05 0.05" class="clickable"
+        gesture-handler>
       </a-entity>
-    </a-nft>
+    </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
 </body>
+
+</html>
