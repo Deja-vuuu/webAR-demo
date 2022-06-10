@@ -6,6 +6,8 @@
 </script>
 <script src="./lib/aframe-master.min.js"></script>
 <script src="./lib/aframe-ar-nft.js"></script>
+<script src="./build/gesture-detector.js"></script>
+<script src="./build/gesture-handler.js"></script>
 <style>
     .arjs-loader {
         height: 100%;
@@ -38,7 +40,7 @@
             smoothCount="10" smoothTolerance=".01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true"
             cursor="fuse: false; rayOrigin: mouse;">
             <a-entity gltf-model="./assets/model/kung_fu/scene.gltf" scale="5 5 5" position="50 150 0" class="clickable"
-                animation-mixer>
+                animation-mixer gesture-handler>
 
         </a-nft>
         <a-entity camera></a-entity>
