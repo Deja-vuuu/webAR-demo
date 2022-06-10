@@ -2,13 +2,10 @@
 <html lang="en">
 <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
 <script>
-    var vConsole = new window.VConsole();
+//   var vConsole = new window.VConsole();
 </script>
-<script
-    src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="./build/aframe-ar-nft.js"></script>
-<script src="./build/gesture-detector.js"></script>
-<script src="./build/gesture-handler.js"></script>
+<script src="./lib/aframe-master.min.js"></script>
+<script src="./lib/aframe-ar-nft.js"></script>
 <style>
     .arjs-loader {
         height: 100%;
@@ -40,10 +37,9 @@
         <a-nft type="nft" url="https://deja-vuuu.github.io/webAR-demo/nft/iset/join_popup" smooth="true"
             smoothCount="10" smoothTolerance=".01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true"
             cursor="fuse: false; rayOrigin: mouse;">
-            <!-- <a-entity gltf-model="./nft/test.gltf" scale="5 5 5" position="50 150 0" class="clickable" gesture-handler>
-            </a-entity> -->
-            <a-entity gltf-model="./nft/trex/scene.gltf" scale="5 5 5" position="50 150 0" class="clickable"
-                gesture-handler>
+            <a-entity gltf-model="./assets/model/kung_fu/scene.gltf" scale="5 5 5" position="50 150 0" class="clickable"
+                animation-mixer>
+
         </a-nft>
         <a-entity camera></a-entity>
     </a-scene>
